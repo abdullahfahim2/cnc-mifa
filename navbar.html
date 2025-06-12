@@ -1,0 +1,142 @@
+<!-- navbar -->
+<header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between gap-6 items-center h-16">
+
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="#" class="text-2xl font-bold text-primary">CNC Marketplace</a>
+            </div>
+
+            <!-- Desktop Menu + Search -->
+            <div class="hidden md:flex md:items-center md:space-x-6 flex-1 max-w-5xl justify-between">
+                <nav class="flex space-x-6 overflow-x-auto no-scrollbar">
+                    <a href="#" class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Home</a>
+                    <a href="#" class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Designs</a>
+                    <a href="#" class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Machines</a>
+                    <a href="#"
+                        class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Subscription</a>
+                    <a href="#" class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Vendors</a>
+                    <a href="#" class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">About</a>
+                    <a href="#" class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Contact</a>
+                </nav>
+
+                <form class="relative flex-shrink-0">
+                    <input type="search" placeholder="Search designs, machines..."
+                        class="pl-10 pr-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent w-64"
+                        aria-label="Search" />
+                    <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5 pointer-events-none" fill="none"
+                        stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="7" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </form>
+            </div>
+
+            <!-- Right side: Login & Vendor CTA -->
+            <div class="hidden md:flex items-center space-x-4 ml-6">
+                <a href="#" class="text-gray-700 hover:text-secondary font-medium whitespace-nowrap">Login</a>
+                <a href="#"
+                    class="bg-accent text-white px-4 py-2 rounded-md font-semibold hover:bg-emerald-600 transition whitespace-nowrap">Become
+                    a Vendor</a>
+            </div>
+
+            <!-- Mobile buttons -->
+            <div class="flex md:hidden items-center space-x-4">
+                <button id="mobile-search-button" aria-label="Toggle Search"
+                    class="text-gray-700 hover:text-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="7" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </button>
+
+                <button id="mobile-menu-button" aria-label="Toggle Menu"
+                    class="text-gray-700 hover:text-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Search Bar -->
+    <div id="mobile-search-bar" class="hidden md:hidden bg-white px-4 pb-4 border-b border-gray-200 relative">
+        <form>
+            <input type="search" placeholder="Search designs, machines..."
+                class="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                aria-label="Mobile Search" />
+            <svg class="w-5 h-5 text-gray-400 absolute left-6 top-3 pointer-events-none" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+        </form>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+        <nav class="px-2 pt-2 pb-4 space-y-1">
+            <a href="#"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Home</a>
+            <a href="#"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Designs</a>
+            <a href="#"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Machines</a>
+            <a href="#"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Subscription</a>
+            <a href="#"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Vendors</a>
+            <a href="#"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">About</a>
+            <a href="#"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Contact</a>
+            <a href="#"
+                class="block px-3 py-2 mt-2 rounded-md text-base font-semibold bg-accent text-white text-center hover:bg-emerald-600">Become
+                a Vendor</a>
+            <a href="#"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary text-center">Login</a>
+        </nav>
+    </div>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileSearchBtn = document.getElementById('mobile-search-button');
+        const mobileSearchBar = document.getElementById('mobile-search-bar');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (!mobileSearchBar.classList.contains('hidden')) {
+                mobileSearchBar.classList.add('hidden');
+            }
+        });
+
+        mobileSearchBtn.addEventListener('click', () => {
+            mobileSearchBar.classList.toggle('hidden');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+
+    <style>
+        /* Hide scrollbar on nav overflow-x auto */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+</header>
