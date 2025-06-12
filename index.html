@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CNC Marketplace - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',
+                        secondary: '#3B82F6',
+                        accent: '#10B981',
+                        background: '#F9FAFB',
+                        text: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-background text-text font-sans">
+
+    <!-- navbar -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between gap-6 items-center h-16">
+
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-primary">CNC Marketplace</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex md:items-center md:space-x-6 flex-1 max-w-5xl justify-between">
+                    <nav class="flex space-x-6 overflow-x-auto no-scrollbar">
+                        <a href="#" class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Home</a>
+                        <a href="#" class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Designs</a>
+                        <a href="#"
+                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Machines</a>
+                        <a href="#"
+                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Subscription</a>
+                        <a href="#" class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Vendors</a>
+                        <a href="#" class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">About</a>
+                        <a href="#" class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Contact</a>
+                    </nav>
+
+                    <form class="relative flex-shrink-0">
+                        <input type="search" placeholder="Search designs, machines..."
+                            class="pl-10 pr-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent w-64"
+                            aria-label="Search" />
+                        <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5 pointer-events-none" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="7" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </form>
+                </div>
+
+                <!-- Login & Vendor -->
+                <div class="hidden md:flex items-center space-x-4 ml-6">
+                    <a href="#" class="text-gray-700 hover:text-secondary font-medium whitespace-nowrap">Login</a>
+                    <a href="#"
+                        class="bg-accent text-white px-4 py-2 rounded-md font-semibold hover:bg-emerald-600 transition whitespace-nowrap">Become
+                        a Vendor</a>
+                </div>
+
+                <!-- Mobile buttons -->
+                <div class="flex md:hidden items-center space-x-4">
+                    <button id="mobile-search-button" aria-label="Toggle Search"
+                        class="text-gray-700 hover:text-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="7" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </button>
+
+                    <button id="mobile-menu-button" aria-label="Toggle Menu"
+                        class="text-gray-700 hover:text-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Search Bar -->
+        <div id="mobile-search-bar" class="hidden md:hidden bg-white px-4 pb-4 border-b border-gray-200 relative">
+            <form>
+                <input type="search" placeholder="Search designs, machines..."
+                    class="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                    aria-label="Mobile Search" />
+                <svg class="w-5 h-5 text-gray-400 absolute left-6 top-3 pointer-events-none" fill="none"
+                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+            </form>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <nav class="px-2 pt-2 pb-4 space-y-1">
+                <a href="#"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Home</a>
+                <a href="#"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Designs</a>
+                <a href="#"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Machines</a>
+                <a href="#"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Subscription</a>
+                <a href="#"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Vendors</a>
+                <a href="#"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">About</a>
+                <a href="#"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Contact</a>
+                <a href="#"
+                    class="block px-3 py-2 mt-2 rounded-md text-base font-semibold bg-accent text-white text-center hover:bg-emerald-600">Become
+                    a Vendor</a>
+                <a href="#"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary text-center">Login</a>
+            </nav>
+        </div>
+
+        <script>
+            const mobileMenuBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileSearchBtn = document.getElementById('mobile-search-button');
+            const mobileSearchBar = document.getElementById('mobile-search-bar');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (!mobileSearchBar.classList.contains('hidden')) {
+                    mobileSearchBar.classList.add('hidden');
+                }
+            });
+
+            mobileSearchBtn.addEventListener('click', () => {
+                mobileSearchBar.classList.toggle('hidden');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        </script>
+
+        <style>
+            /* Hide scrollbar on nav overflow-x auto */
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                /* IE and Edge */
+                scrollbar-width: none;
+                /* Firefox */
+            }
+        </style>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+        class="relative bg-cover bg-center bg-no-repeat min-h-screen lg:min-h-[100vh] xl:min-h-[100vh] flex items-center justify-center text-white"
+        style="background-image: url('https://images.pexels.com/photos/4182228/pexels-photo-4182228.jpeg?auto=format&fit=crop&w=1950&q=80');">
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+
+                <!-- Text Content -->
+                <div>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-6">
+                        Empowering <span class="text-blue-500">CNC Creators</span> Worldwide
+                    </h1>
+                    <p class="text-lg text-gray-300 mb-8">
+                        Buy & sell new or used CNC machines, explore high-quality 2D/2.5D/3D designs, or subscribe for
+                        unlimited access — all in one professional platform.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <!-- Button 1 -->
+                        <a href="#"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                            Explore Designs
+                        </a>
+                        <!-- Button 2 -->
+                        <a href="#"
+                            class="bg-white text-blue-700 hover:bg-gray-100 hover:text-blue-900 px-6 py-3 rounded-lg font-semibold shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
+                            Sell Your Machine
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="hidden md:block">
+                    <img src="https://www.fastems.com/wp-content/uploads/2021/08/AdobeStock_172041052-scaled.jpeg"
+                        alt="CNC Machine cutting metal" class="rounded-lg shadow-lg max-h-[500px] w-full object-cover">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-white py-24">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Section Heading -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+                    Powering CNC Innovation
+                </h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                    Discover tools to transform how you buy, sell, and connect with CNC designs and machines.
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Feature Card -->
+                <div
+                    class="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Marketplace"
+                        class="w-14 h-14 mb-6 mx-auto group-hover:scale-110 transition duration-300">
+                    <h3
+                        class="text-xl font-semibold text-gray-900 mb-2 text-center group-hover:text-blue-600 transition">
+                        Multi-Vendor Marketplace</h3>
+                    <p class="text-gray-600 text-center">Allow verified sellers to list new or used CNC machines, making
+                        selling simple and reliable.</p>
+                </div>
+
+                <!-- Feature Card -->
+                <div
+                    class="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3176/3176294.png" alt="Design Library"
+                        class="w-14 h-14 mb-6 mx-auto group-hover:scale-110 transition duration-300">
+                    <h3
+                        class="text-xl font-semibold text-gray-900 mb-2 text-center group-hover:text-blue-600 transition">
+                        Design File Library</h3>
+                    <p class="text-gray-600 text-center">Choose from 2D, 2.5D, and 3D CNC-ready designs available for
+                        individual or subscription access.</p>
+                </div>
+
+                <!-- Feature Card -->
+                <div
+                    class="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Direct Machine Link"
+                        class="w-14 h-14 mb-6 mx-auto group-hover:scale-110 transition duration-300">
+                    <h3
+                        class="text-xl font-semibold text-gray-900 mb-2 text-center group-hover:text-blue-600 transition">
+                        Direct-to-Machine Sharing</h3>
+                    <p class="text-gray-600 text-center">No downloads needed. Share design files directly with
+                        compatible CNC machines securely.</p>
+                </div>
+
+                <!-- Feature Card -->
+                <div
+                    class="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Ratings"
+                        class="w-14 h-14 mb-6 mx-auto group-hover:scale-110 transition duration-300">
+                    <h3
+                        class="text-xl font-semibold text-gray-900 mb-2 text-center group-hover:text-blue-600 transition">
+                        Verified Seller Ratings</h3>
+                    <p class="text-gray-600 text-center">Trust sellers with badge-based verifications and ratings from
+                        other CNC professionals.</p>
+                </div>
+
+                <!-- Feature Card -->
+                <div
+                    class="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Subscription"
+                        class="w-14 h-14 mb-6 mx-auto group-hover:scale-110 transition duration-300">
+                    <h3
+                        class="text-xl font-semibold text-gray-900 mb-2 text-center group-hover:text-blue-600 transition">
+                        Flexible Subscriptions</h3>
+                    <p class="text-gray-600 text-center">Monthly access to a premium design library. Ideal for
+                        businesses with frequent project needs.</p>
+                </div>
+
+                <!-- Feature Card -->
+                <div
+                    class="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1827/1827504.png" alt="Support"
+                        class="w-14 h-14 mb-6 mx-auto group-hover:scale-110 transition duration-300">
+                    <h3
+                        class="text-xl font-semibold text-gray-900 mb-2 text-center group-hover:text-blue-600 transition">
+                        Expert Support</h3>
+                    <p class="text-gray-600 text-center">Live help, guides, and a supportive community to back you up
+                        when you need it most.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CNC Machines Section -->
+    <section class="py-16 bg-gradient-to-r from-indigo-900 via-blue-900 to-indigo-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-white mb-12 text-center">CNC Machines</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+                <!-- Machine Card -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ95MEZ5Xm83LQwBoro5VCwMR4O6QHedtuQsA&s"
+                            alt="CNC Router Pro 3000"
+                            class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3
+                            class="text-xl font-semibold text-indigo-900 mb-1 group-hover:text-blue-700 transition-colors duration-300">
+                            CNC Router Pro 3000</h3>
+                        <p class="text-gray-600 mb-3">High precision 3-axis CNC router</p>
+                        <p class="text-blue-700 font-bold text-lg">$12,499</p>
+                    </div>
+                </div>
+
+                <!-- Machine Card -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://www.rdmo.com/media/cache/product_lightbox/doc_10696_taille-2_124635_0.jpg"
+                            alt="Industrial CNC Mill 450"
+                            class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3
+                            class="text-xl font-semibold text-indigo-900 mb-1 group-hover:text-blue-700 transition-colors duration-300">
+                            Industrial CNC Mill 450</h3>
+                        <p class="text-gray-600 mb-3">Robust 5-axis milling machine</p>
+                        <p class="text-blue-700 font-bold text-lg">$24,999</p>
+                    </div>
+                </div>
+
+                <!-- Machine Card -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://cdn.machineseeker.com/data/listing/img/vga/ms/05/06/19272711-01.jpg?v=1748852757"
+                            alt="Compact CNC Lathe 200"
+                            class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3
+                            class="text-xl font-semibold text-indigo-900 mb-1 group-hover:text-blue-700 transition-colors duration-300">
+                            Compact CNC Lathe 200</h3>
+                        <p class="text-gray-600 mb-3">Ideal for small-scale production</p>
+                        <p class="text-blue-700 font-bold text-lg">$8,799</p>
+                    </div>
+                </div>
+
+                <!-- Machine Card -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://rgtool.ca/wp-content/uploads/2024/09/advanced-CNC-laser-cutting-technology.png"
+                            alt="Advanced CNC Laser Cutter"
+                            class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3
+                            class="text-xl font-semibold text-indigo-900 mb-1 group-hover:text-blue-700 transition-colors duration-300">
+                            Advanced CNC Laser Cutter</h3>
+                        <p class="text-gray-600 mb-3">High-precision laser cutting technology</p>
+                        <p class="text-blue-700 font-bold text-lg">$18,500</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mt-12 flex justify-center">
+                <button
+                    class="px-8 py-3 bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:bg-blue-800 hover:shadow-lg transition duration-300"
+                    type="button">
+                    See More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CNC Designs section -->
+    <section class="py-16 bg-gradient-to-r from-indigo-900 via-blue-900 to-indigo-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-white mb-12 text-center">CNC Designs</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Design Card Example -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/2de58337258355.560661616d880.jpg"
+                            alt="2D Design Example"
+                            class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div class="p-6">
+                        <h3
+                            class="text-xl font-semibold text-indigo-900 mb-1 group-hover:text-blue-700 transition-colors duration-300">
+                            2D Carving Pattern</h3>
+                        <p class="text-gray-600 mb-3">Perfect for decorative wood projects</p>
+                        <p class="text-blue-700 font-bold text-lg">$19.99</p>
+                        <button
+                            class="mt-2 px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition duration-300">Buy
+                            Now</button>
+                    </div>
+                </div>
+
+                <!-- Design Card 2 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://img.pikbest.com/backgrounds/20250119/elegant-white-leather-with-3d-floral-pattern-vibrant-flowers-and-golden-frame-in-panels_11416307.jpg!w700wp"
+                            alt="3D Floral Design"
+                            class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div class="p-6">
+                        <h3
+                            class="text-xl font-semibold text-indigo-900 mb-1 group-hover:text-blue-700 transition-colors duration-300">
+                            3D Floral Design</h3>
+                        <p class="text-gray-600 mb-3">Elegant 3D engraving for premium projects</p>
+                        <p class="text-blue-700 font-bold text-lg">$49.99</p>
+                        <button
+                            class="mt-2 px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition duration-300">Buy
+                            Now</button>
+                    </div>
+                </div>
+
+                <!-- Design Card 3 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://i.pinimg.com/236x/49/07/d1/4907d1fd1cf2324d28953b6169041a21.jpg"
+                            alt="2.5D Geometric Design"
+                            class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div class="p-6">
+                        <h3
+                            class="text-xl font-semibold text-indigo-900 mb-1 group-hover:text-blue-700 transition-colors duration-300">
+                            2.5D Geometric Design</h3>
+                        <p class="text-gray-600 mb-3">Perfect balance between depth and simplicity</p>
+                        <p class="text-blue-700 font-bold text-lg">$29.99</p>
+                        <button
+                            class="mt-2 px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition duration-300">Buy
+                            Now</button>
+                    </div>
+                </div>
+
+                <!-- Design Card 4 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://www.shutterstock.com/image-vector/laser-cnc-cutting-panels-template-600nw-2478185695.jpg"
+                            alt="Industrial Panel Design"
+                            class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div class="p-6">
+                        <h3
+                            class="text-xl font-semibold text-indigo-900 mb-1 group-hover:text-blue-700 transition-colors duration-300">
+                            Industrial Panel Design</h3>
+                        <p class="text-gray-600 mb-3">Robust design for metalwork and panels</p>
+                        <p class="text-blue-700 font-bold text-lg">$39.99</p>
+                        <button
+                            class="mt-2 px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition duration-300">Buy
+                            Now</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-12 flex justify-center">
+                <button
+                    class="px-8 py-3 bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:bg-blue-800 hover:shadow-lg transition duration-300"
+                    type="button">
+                    See More Designs
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us section -->
+    <section class="py-20 bg-white text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-5xl font-extrabold text-gray-900 text-center mb-6 tracking-wide">Why Choose Us</h2>
+            <p class="text-lg text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+                We offer a complete CNC ecosystem—machines, design files, vendor solutions, and subscriptions—so you can
+                build smarter, work faster, and grow your business with confidence.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+
+                <!-- Feature 1 -->
+                <div
+                    class="flex flex-col items-center text-center p-8 bg-gradient-to-tr from-blue-400 to-blue-600 rounded-2xl shadow-xl hover:scale-105 transform transition duration-300">
+                    <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Competitive Pricing"
+                        class="w-20 h-20 mb-6" />
+                    <h3 class="text-3xl font-semibold mb-4">Competitive Pricing</h3>
+                    <p class="text-blue-100 max-w-xs">Get unbeatable prices on new and used CNC machines, plus exclusive
+                        access to premium design files.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div
+                    class="flex flex-col items-center text-center p-8 bg-gradient-to-tr from-blue-400 to-blue-600 rounded-2xl shadow-xl hover:scale-105 transform transition duration-300">
+                    <img src="https://cdn-icons-png.flaticon.com/512/190/190416.png" alt="Verified Sellers"
+                        class="w-20 h-20 mb-6" />
+                    <h3 class="text-3xl font-semibold mb-4">Trusted Vendors</h3>
+                    <p class="text-blue-100 max-w-xs">We carefully vet every seller to ensure you get reliable,
+                        high-quality CNC machines and services.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div
+                    class="flex flex-col items-center text-center p-8 bg-gradient-to-tr from-blue-400 to-blue-600 rounded-2xl shadow-xl hover:scale-105 transform transition duration-300">
+                    <img src="https://cdn-icons-png.flaticon.com/512/190/190422.png" alt="Direct to Machine Designs"
+                        class="w-20 h-20 mb-6" />
+                    <h3 class="text-3xl font-semibold mb-4">Direct to Machine Designs</h3>
+                    <p class="text-blue-100 max-w-xs">Streamline your workflow by sending CNC design files directly to
+                        your machine — no downloads required.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Become a Vendor -->
+    <section class="py-20 bg-gradient-to-br from-indigo-900 via-blue-900 to-indigo-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center gap-12">
+
+            <!-- Text Content -->
+            <div class="lg:w-1/2">
+                <h2 class="text-4xl font-extrabold mb-4">Become a Vendor</h2>
+                <p class="text-lg text-blue-100 mb-6">
+                    Join our trusted platform to sell your CNC machines or digital design files. Expand your reach, grow
+                    your business, and connect with thousands of potential buyers.
+                </p>
+
+                <ul class="text-blue-100 space-y-3 mb-8">
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-400 text-xl">✓</span> List new or used CNC machines
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-400 text-xl">✓</span> Sell digital CNC designs directly
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-400 text-xl">✓</span> Reach a targeted CNC-focused audience
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-green-400 text-xl">✓</span> Easy registration and support
+                    </li>
+                </ul>
+
+                <a href="/vendor/register"
+                    class="inline-block bg-white text-indigo-900 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-100 hover:shadow-xl transition duration-300">
+                    Get Started as a Vendor
+                </a>
+            </div>
+
+            <!-- Professional Image -->
+            <div class="lg:w-1/2 flex justify-center">
+                <img src="https://thumbs.dreamstime.com/b/operator-cnc-drawing-vector-illustration-66996509.jpg"
+                    alt="CNC Vendor Illustration" class="w-full max-w-md h-auto object-contain rounded-xl shadow-2xl" />
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white text-gray-900">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-4xl lg:text-5xl font-bold text-center mb-6">What Our Users Say</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+                Discover what real users and industry professionals say about our CNC marketplace and smart design
+                tools.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Testimonial Card 1 -->
+                <div class="bg-gray-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="User"
+                            class="w-14 h-14 rounded-full border-2 border-blue-600" />
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900">Alex M.</h4>
+                            <p class="text-sm text-blue-600">Factory Manager, Germany</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">“The precision and accessibility of CNC designs here saved us hours in
+                        production setup. Highly professional service.”</p>
+                    <div class="flex gap-1 text-yellow-400">★★★★★</div>
+                </div>
+
+                <!-- Testimonial Card 2 -->
+                <div class="bg-gray-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User"
+                            class="w-14 h-14 rounded-full border-2 border-blue-600" />
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900">Fatima R.</h4>
+                            <p class="text-sm text-blue-600">Vendor, UAE</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">“Listing machines was seamless, and I received genuine inquiries
+                        quickly. The platform is very user-friendly.”</p>
+                    <div class="flex gap-1 text-yellow-400">★★★★★</div>
+                </div>
+
+                <!-- Testimonial Card 3 -->
+                <div class="bg-gray-100 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/78.jpg" alt="User"
+                            class="w-14 h-14 rounded-full border-2 border-blue-600" />
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900">Zahidul I.</h4>
+                            <p class="text-sm text-blue-600">Workshop Owner, Bangladesh</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">“The ‘send to machine’ design feature is revolutionary. It makes the
+                        process effortless and fast.”</p>
+                    <div class="flex gap-1 text-yellow-400">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- trusted company section -->
+    <section class="py-20 bg-gray-100 text-gray-800">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-center mb-6">Our Trusted Partners</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                We collaborate with top-tier CNC manufacturers and tech companies to bring you innovative, precise, and
+                reliable machine and design solutions.
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center justify-center">
+                <div
+                    class="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md transition duration-300 flex items-center justify-center">
+                    <img src="https://www.ctemag.com/sites/default/files/buyers_guide_images/haimer-logo-vector.png"
+                        alt="Haimer" class="h-10 object-contain">
+                </div>
+
+                <div
+                    class="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md transition duration-300 flex items-center justify-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfFzudVjGPthBnsDjIabTSPIoOjLBP4fLQvw&s"
+                        alt="Haas" class="h-10 object-contain">
+                </div>
+
+                <div
+                    class="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md transition duration-300 flex items-center justify-center">
+                    <img src="https://www.shannonchamber.ie/wp-content/uploads/2024/07/siemens-logo.png" alt="Siemens"
+                        class="h-10 object-contain">
+                </div>
+
+                <div
+                    class="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md transition duration-300 flex items-center justify-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsafNc_ez7_wyITyx0_In7wGc1YsjeoVUlZw&s"
+                        alt="Bosch" class="h-10 object-contain">
+                </div>
+
+                <div
+                    class="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md transition duration-300 flex items-center justify-center">
+                    <img src="https://damassets.autodesk.net/content/dam/autodesk/draftr/22354/yamazaki-mazak-corporation-vector-logo.png"
+                        alt="Mazak" class="h-10 object-contain">
+                </div>
+
+                <div
+                    class="bg-white p-4 rounded-lg shadow-sm border hover:shadow-md transition duration-300 flex items-center justify-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Fanuc_logo.svg/2560px-Fanuc_logo.svg.png"
+                        alt="FANUC" class="h-10 object-contain">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        class="bg-gray-900 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')] bg-cover bg-center text-gray-300 pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-4">CNC Marketplace</h2>
+                    <p class="text-sm leading-relaxed">
+                        A trusted platform for buying, selling, and connecting CNC machine vendors, designers, and
+                        customers worldwide.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22 12c0-5.522-4.478-10-10-10S2 6.478 2 12a9.97 9.97 0 005.43 8.89v-6.28H5.1v-2.61h2.33V9.77c0-2.31 1.38-3.58 3.49-3.58.99 0 2.03.18 2.03.18v2.23h-1.14c-1.13 0-1.48.7-1.48 1.42v1.7h2.52l-.4 2.61h-2.12v6.28A9.97 9.97 0 0022 12z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.54 6.42c-.77.34-1.6.58-2.46.69a4.29 4.29 0 001.88-2.37 8.48 8.48 0 01-2.71 1.03 4.26 4.26 0 00-7.27 3.88A12.1 12.1 0 013 5.18a4.26 4.26 0 001.32 5.69 4.21 4.21 0 01-1.93-.53v.05c0 2.02 1.44 3.71 3.35 4.1a4.3 4.3 0 01-1.93.07 4.27 4.27 0 003.98 2.96A8.56 8.56 0 012 19.54a12.08 12.08 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19-.01-.38-.02-.57a8.72 8.72 0 002.14-2.21z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="text-gray-400 hover:text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M21.8 8s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C15.7 5 12 5 12 5h0s-3.7 0-7.1.1c-.4.1-1.2.1-1.9.9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.6C2 14.4 2.2 16 2.2 16s.2 1.4.8 2c.7.8 1.6.8 2 1C8.3 19 12 19 12 19s3.7 0 7.1-.1c.4-.1 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.6C22 9.6 21.8 8 21.8 8zM10 15V9l6 3-6 3z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Home</a></li>
+                        <li><a href="#" class="hover:text-white">Designs</a></li>
+                        <li><a href="#" class="hover:text-white">Machines</a></li>
+                        <li><a href="#" class="hover:text-white">Vendors</a></li>
+                        <li><a href="#" class="hover:text-white">Subscription</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Support</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Contact</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>Email: <a href="mailto:support@cncmarket.com"
+                                class="hover:text-white">support@cncmarket.com</a></li>
+                        <li>Phone: <a href="tel:+880123456789" class="hover:text-white">+880 1234 56789</a></li>
+                        <li>Location: Dhaka, Bangladesh</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Note -->
+            <div class="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+                <p>&copy; 2025 CNC Marketplace. All rights reserved.Designed By <a href="#"
+                        class="hover:underline">MiFa</a>!</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
