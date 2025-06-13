@@ -174,8 +174,232 @@
         </style>
     </header>
 
+    <!-- vendor hero section -->
+    <section class="relative bg-gradient-to-r from-indigo-900 via-blue-900 to-indigo-900 text-white py-24 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center lg:items-start gap-12">
 
+            <!-- Left content -->
+            <div class="lg:w-1/2 text-center lg:text-left space-y-6">
+                <h1 class="text-5xl font-extrabold leading-tight tracking-wide drop-shadow-lg">
+                    Connect with Trusted CNC Vendors
+                </h1>
+                <p class="text-lg text-blue-200 max-w-xl mx-auto lg:mx-0">
+                    Discover reliable suppliers, get the best deals, and grow your CNC business with verified partners.
+                </p>
+                <div class="mt-8 flex justify-center lg:justify-start gap-6">
+                    <a href="#search"
+                        class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-semibold shadow-lg transition">
+                        Find Vendors
+                    </a>
+                    <a href="#become-vendor"
+                        class="border border-blue-500 hover:border-blue-700 px-8 py-3 rounded-full font-semibold text-blue-300 hover:text-white transition">
+                        Become a Vendor
+                    </a>
+                </div>
+            </div>
 
+            <!-- Right Image -->
+            <div class="lg:w-1/2 max-w-md mx-auto">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80"
+                    alt="CNC machinery"
+                    class="rounded-xl shadow-xl hover:scale-105 transition-transform duration-500 mx-auto" />
+            </div>
+
+        </div>
+
+        <!-- Decorative shapes -->
+        <div class="absolute top-10 left-10 w-24 h-24 bg-blue-600 opacity-20 rounded-full blur-3xl pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-16 right-16 w-32 h-32 bg-indigo-700 opacity-25 rounded-full blur-3xl pointer-events-none">
+        </div>
+    </section>
+
+    <!-- search and filter section -->
+    <section class="bg-white py-8 px-6 shadow-md rounded-lg max-w-7xl mx-auto">
+        <form class="flex flex-col md:flex-row md:items-center md:space-x-6 space-y-4 md:space-y-0" role="search"
+            aria-label="Search and filter CNC machines or vendors">
+
+            <!-- Search Input -->
+            <div class="flex-1">
+                <label for="search" class="sr-only">Search</label>
+                <input type="search" id="search" name="search" placeholder="Search CNC machines or vendors..."
+                    class="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600" />
+            </div>
+
+            <!-- Category Filter -->
+            <div class="w-full md:w-64">
+                <label for="category" class="sr-only">Category</label>
+                <select id="category" name="category"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600">
+                    <option value="">All Categories</option>
+                    <option value="routers">CNC Routers</option>
+                    <option value="mills">Milling Machines</option>
+                    <option value="lathes">Lathes</option>
+                    <option value="laser-cutters">Laser Cutters</option>
+                </select>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="w-full md:w-64">
+                <label for="price" class="sr-only">Price Range</label>
+                <select id="price" name="price"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600">
+                    <option value="">All Prices</option>
+                    <option value="0-10000">Up to $10,000</option>
+                    <option value="10000-20000">$10,000 - $20,000</option>
+                    <option value="20000+">Above $20,000</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+                <button type="submit"
+                    class="w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg px-6 py-3 transition">
+                    Search
+                </button>
+            </div>
+
+        </form>
+    </section>
+
+    <!-- vendors grid section  -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+                <!-- Vendor Card -->
+                <div
+                    class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 flex flex-col items-center text-center">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=150&q=80"
+                        alt="Vendor Name" class="w-24 h-24 rounded-full object-cover mb-4" loading="lazy" />
+                    <h3 class="text-xl font-semibold mb-1 text-gray-900">Precision Tools Co.</h3>
+                    <p class="text-gray-600 mb-3">Specializing in CNC routers and laser cutters.</p>
+                    <a href="#"
+                        class="mt-auto inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full font-medium transition">
+                        View Profile
+                    </a>
+                </div>
+
+                <!-- Vendor Card -->
+                <div
+                    class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 flex flex-col items-center text-center">
+                    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=150&q=80"
+                        alt="Vendor Name" class="w-24 h-24 rounded-full object-cover mb-4" loading="lazy" />
+                    <h3 class="text-xl font-semibold mb-1 text-gray-900">Milling Experts Ltd.</h3>
+                    <p class="text-gray-600 mb-3">Trusted vendor for industrial CNC milling machines.</p>
+                    <a href="#"
+                        class="mt-auto inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full font-medium transition">
+                        View Profile
+                    </a>
+                </div>
+
+                <!-- Vendor Card -->
+                <div
+                    class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 flex flex-col items-center text-center">
+                    <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=150&q=80"
+                        alt="Vendor Name" class="w-24 h-24 rounded-full object-cover mb-4" loading="lazy" />
+                    <h3 class="text-xl font-semibold mb-1 text-gray-900">LaserTech Solutions</h3>
+                    <p class="text-gray-600 mb-3">High precision CNC laser cutting vendor.</p>
+                    <a href="#"
+                        class="mt-auto inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full font-medium transition">
+                        View Profile
+                    </a>
+                </div>
+
+                <!-- Vendor Card -->
+                <div
+                    class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 flex flex-col items-center text-center">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=150&q=80"
+                        alt="Vendor Name" class="w-24 h-24 rounded-full object-cover mb-4" loading="lazy" />
+                    <h3 class="text-xl font-semibold mb-1 text-gray-900">CNC Innovations Inc.</h3>
+                    <p class="text-gray-600 mb-3">Innovative CNC solutions and machinery suppliers.</p>
+                    <a href="#"
+                        class="mt-auto inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full font-medium transition">
+                        View Profile
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- why sell with us section -->
+    <section class="py-20 bg-gradient-to-r from-indigo-950 via-blue-900 to-indigo-950 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-extrabold mb-6 tracking-wide">Why Sell With Us?</h2>
+            <p class="max-w-3xl mx-auto text-blue-200 mb-12">
+                Join our trusted marketplace to reach thousands of buyers, boost your sales, and grow your business with
+                ease.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+
+                <div
+                    class="bg-white bg-opacity-10 rounded-xl p-8 shadow-lg hover:bg-opacity-20 transition duration-300">
+                    <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Wide Reach"
+                        class="w-16 h-16 mx-auto mb-6" />
+                    <h3 class="text-2xl font-semibold mb-3">Wide Buyer Network</h3>
+                    <p>Access a large and growing community of CNC machine enthusiasts and professionals.</p>
+                </div>
+
+                <div
+                    class="bg-white bg-opacity-10 rounded-xl p-8 shadow-lg hover:bg-opacity-20 transition duration-300">
+                    <img src="https://cdn-icons-png.flaticon.com/512/190/190416.png" alt="Trusted Platform"
+                        class="w-16 h-16 mx-auto mb-6" />
+                    <h3 class="text-2xl font-semibold mb-3">Trusted & Secure</h3>
+                    <p>Our platform ensures safe transactions and reliable vendor verification for your peace of mind.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white bg-opacity-10 rounded-xl p-8 shadow-lg hover:bg-opacity-20 transition duration-300">
+                    <img src="https://cdn-icons-png.flaticon.com/512/190/190422.png" alt="Easy Management"
+                        class="w-16 h-16 mx-auto mb-6" />
+                    <h3 class="text-2xl font-semibold mb-3">Easy Sales Management</h3>
+                    <p>Manage your listings, track sales, and communicate with buyers effortlessly through our vendor
+                        dashboard.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- become a vendor section -->
+    <section class="py-20 bg-gradient-to-br from-indigo-950 via-blue-900 to-indigo-950 text-white">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+            <!-- Text Content -->
+            <div>
+                <h2 class="text-4xl sm:text-5xl font-extrabold mb-4">Become a Vendor</h2>
+                <p class="text-blue-200 text-lg mb-6">
+                    Join our platform and connect with thousands of buyers looking for CNC machines and designs. Expand
+                    your reach and grow your business with ease.
+                </p>
+                <ul class="text-blue-100 space-y-2 mb-8">
+                    <li class="flex items-center">
+                        <span class="text-blue-400 mr-2">✔</span> List new and used CNC machines easily
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-blue-400 mr-2">✔</span> Access premium design marketplace
+                    </li>
+                    <li class="flex items-center">
+                        <span class="text-blue-400 mr-2">✔</span> Manage your store with powerful tools
+                    </li>
+                </ul>
+                <a href="#"
+                    class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300">
+                    Become a Vendor Today
+                </a>
+            </div>
+
+            <!-- Image -->
+            <div class="flex justify-center">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Vendor Illustration"
+                    class="w-72 h-72 object-contain" />
+            </div>
+
+        </div>
+    </section>
 
 
     <!-- Footer -->
