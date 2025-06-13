@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CNC Marketplace - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E3A8A',
+                        secondary: '#3B82F6',
+                        accent: '#10B981',
+                        background: '#F9FAFB',
+                        text: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-background text-text font-sans">
+
+    <!-- navbar -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between gap-6 items-center h-16">
+
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-primary">CNC Marketplace</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex md:items-center md:space-x-6 flex-1 max-w-5xl justify-between">
+                    <nav class="flex space-x-6 overflow-x-auto no-scrollbar">
+                        <a href="index.html"
+                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Home</a>
+                        <a href="designs.html"
+                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Designs</a>
+                        <a href="machines.html"
+                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Machines</a>
+                        <a href="subscription.html"
+                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Subscription</a>
+                        <a href="vendors.html"
+                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Vendors</a>
+                        <a href="aboutus.html"
+                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">About</a>
+                        <a href="contactus.html"
+                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Contact</a>
+                    </nav>
+
+                    <form class="relative flex-shrink-0">
+                        <input type="search" placeholder="Search designs, machines..."
+                            class="pl-10 pr-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent w-64"
+                            aria-label="Search" />
+                        <svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5 pointer-events-none" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="7" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </form>
+                </div>
+
+                <!-- Login & Vendor -->
+                <div class="hidden md:flex items-center space-x-4 ml-6">
+                    <a href="#" class="text-gray-700 hover:text-secondary font-medium whitespace-nowrap">Login</a>
+                    <a href="#"
+                        class="bg-accent text-white px-4 py-2 rounded-md font-semibold hover:bg-emerald-600 transition whitespace-nowrap">Become
+                        a Vendor</a>
+                </div>
+
+                <!-- Mobile buttons -->
+                <div class="flex md:hidden items-center space-x-4">
+                    <button id="mobile-search-button" aria-label="Toggle Search"
+                        class="text-gray-700 hover:text-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="7" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </button>
+
+                    <button id="mobile-menu-button" aria-label="Toggle Menu"
+                        class="text-gray-700 hover:text-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Search Bar -->
+        <div id="mobile-search-bar" class="hidden md:hidden bg-white px-4 pb-4 border-b border-gray-200 relative">
+            <form>
+                <input type="search" placeholder="Search designs, machines..."
+                    class="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+                    aria-label="Mobile Search" />
+                <svg class="w-5 h-5 text-gray-400 absolute left-6 top-3 pointer-events-none" fill="none"
+                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+            </form>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <nav class="px-2 pt-2 pb-4 space-y-1">
+                <a href="index.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Home</a>
+                <a href="designs.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Designs</a>
+                <a href="machines.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Machines</a>
+                <a href="subcription.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Subscription</a>
+                <a href="vendors.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Vendors</a>
+                <a href="aboutus.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">About</a>
+                <a href="contactus.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-gray-50">Contact</a>
+                <a href="vendor-registration.html"
+                    class="block px-3 py-2 mt-2 rounded-md text-base font-semibold bg-accent text-white text-center hover:bg-emerald-600">Become
+                    a Vendor</a>
+                <a href="login.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary text-center">Login</a>
+            </nav>
+        </div>
+
+        <script>
+            const mobileMenuBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileSearchBtn = document.getElementById('mobile-search-button');
+            const mobileSearchBar = document.getElementById('mobile-search-bar');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (!mobileSearchBar.classList.contains('hidden')) {
+                    mobileSearchBar.classList.add('hidden');
+                }
+            });
+
+            mobileSearchBtn.addEventListener('click', () => {
+                mobileSearchBar.classList.toggle('hidden');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        </script>
+
+        <style>
+            /* Hide scrollbar on nav overflow-x auto */
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                /* IE and Edge */
+                scrollbar-width: none;
+                /* Firefox */
+            }
+        </style>
+    </header>
+
+
+
+
+    <!-- Footer -->
+    <footer
+        class="bg-gray-900 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')] bg-cover bg-center text-gray-300 pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+                <div>
+                    <h2 class="text-xl font-bold text-white mb-4">CNC Marketplace</h2>
+                    <p class="text-sm leading-relaxed">
+                        A trusted platform for buying, selling, and connecting CNC machine vendors, designers, and
+                        customers worldwide.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22 12c0-5.522-4.478-10-10-10S2 6.478 2 12a9.97 9.97 0 005.43 8.89v-6.28H5.1v-2.61h2.33V9.77c0-2.31 1.38-3.58 3.49-3.58.99 0 2.03.18 2.03.18v2.23h-1.14c-1.13 0-1.48.7-1.48 1.42v1.7h2.52l-.4 2.61h-2.12v6.28A9.97 9.97 0 0022 12z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.54 6.42c-.77.34-1.6.58-2.46.69a4.29 4.29 0 001.88-2.37 8.48 8.48 0 01-2.71 1.03 4.26 4.26 0 00-7.27 3.88A12.1 12.1 0 013 5.18a4.26 4.26 0 001.32 5.69 4.21 4.21 0 01-1.93-.53v.05c0 2.02 1.44 3.71 3.35 4.1a4.3 4.3 0 01-1.93.07 4.27 4.27 0 003.98 2.96A8.56 8.56 0 012 19.54a12.08 12.08 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19-.01-.38-.02-.57a8.72 8.72 0 002.14-2.21z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="text-gray-400 hover:text-white">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M21.8 8s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C15.7 5 12 5 12 5h0s-3.7 0-7.1.1c-.4.1-1.2.1-1.9.9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.6C2 14.4 2.2 16 2.2 16s.2 1.4.8 2c.7.8 1.6.8 2 1C8.3 19 12 19 12 19s3.7 0 7.1-.1c.4-.1 1.2-.1 1.9-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.6C22 9.6 21.8 8 21.8 8zM10 15V9l6 3-6 3z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-white">Home</a></li>
+                        <li><a href="designs.html" class="hover:text-white">Designs</a></li>
+                        <li><a href="machines.html" class="hover:text-white">Machines</a></li>
+                        <li><a href="vendors.html" class="hover:text-white">Vendors</a></li>
+                        <li><a href="subscription.html" class="hover:text-white">Subscription</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Support</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="helpcenter.html" class="hover:text-white">Help Center</a></li>
+                        <li><a href="termsofservice.html" class="hover:text-white">Terms of Service</a></li>
+                        <li><a href="privacypolicy.html" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="support.html" class="hover:text-white">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Contact</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>Email: <a href="mailto:support@cncmarket.com"
+                                class="hover:text-white">support@cncmarket.com</a></li>
+                        <li>Phone: <a href="tel:+880123456789" class="hover:text-white">+880 1234 56789</a></li>
+                        <li>Location: Dhaka, Bangladesh</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Note -->
+            <div class="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+                <p>&copy; 2025 CNC Marketplace. All rights reserved.Designed By <a href="#"
+                        class="hover:underline">MiFa</a>!</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
