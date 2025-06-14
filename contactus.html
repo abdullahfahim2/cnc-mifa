@@ -69,7 +69,7 @@
 
                 <!-- Login & Vendor -->
                 <div class="hidden md:flex items-center space-x-4 ml-6">
-                    <a href="#" class="text-gray-700 hover:text-secondary font-medium whitespace-nowrap">Login</a>
+                    <a href="login.html" class="text-gray-700 hover:text-secondary font-medium whitespace-nowrap">Login</a>
                     <a href="#"
                         class="bg-accent text-white px-4 py-2 rounded-md font-semibold hover:bg-emerald-600 transition whitespace-nowrap">Become
                         a Vendor</a>
@@ -174,7 +174,7 @@
         </style>
     </header>
 
-
+    <!-- hero section -->
     <section class="bg-gradient-to-r from-indigo-900 via-blue-900 to-indigo-900 text-white py-20">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
@@ -190,7 +190,66 @@
         </div>
     </section>
 
+    <!-- contact form section -->
+    <section id="contact-form" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
 
+            <!-- Contact Form -->
+            <div class="bg-gray-50 p-8 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-indigo-900 mb-6">Send us a message</h2>
+                <form action="#" method="POST" class="space-y-4">
+                    <input type="text" placeholder="Your Name" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-4 focus:ring-blue-300 outline-none">
+                    <input type="email" placeholder="Your Email" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-4 focus:ring-blue-300 outline-none">
+                    <input type="text" placeholder="Subject"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-4 focus:ring-blue-300 outline-none">
+                    <textarea placeholder="Your Message" rows="5" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-4 focus:ring-blue-300 outline-none"></textarea>
+                    <button type="submit"
+                        class="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 rounded-lg transition">
+                        Submit
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="flex flex-col justify-center space-y-6 text-indigo-900">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Our Office</h3>
+                    <p class="text-gray-700">123 CNC Tech Park<br> Dhaka, Bangladesh</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Email</h3>
+                    <p class="text-blue-700">support@yourcncsite.com</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Phone</h3>
+                    <p class="text-gray-700">+880 123 456 789</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-2">Business Hours</h3>
+                    <p class="text-gray-700">Sun - Thu: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- map section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center mb-8">
+                Our Location
+            </h2>
+            <div class="w-full h-96 rounded-2xl overflow-hidden shadow-lg">
+                <iframe class="w-full h-full"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902015881166!2d90.4045609142978!3d23.750885894735323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b85504cf97af%3A0x6ff1fdf47f48e3b!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1718273544705!5m2!1sen!2sbd"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer
