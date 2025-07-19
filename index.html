@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CNC Marketplace - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font-awesome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         tailwind.config = {
             theme: {
@@ -21,49 +25,56 @@
             }
         }
     </script>
-
-    <style>
-        /* Hide scrollbar on nav overflow-x auto */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            /* IE and Edge */
-            scrollbar-width: none;
-            /* Firefox */
-        }
-    </style>
 </head>
 
 <body class="bg-background text-text font-sans">
 
-    <header class="bg-white shadow sticky top-0 z-50">
+    <header class="bg-white/40 backdrop-blur-md shadow-lg border-b border-white/20 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between gap-6 items-center h-16">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-bold text-primary">CNC Marketplace</a>
+                    <a href="#" class="md:block hidden text-2xl font-bold text-primary">CNC Precision</a>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex md:items-center md:space-x-6 flex-1 max-w-5xl justify-between">
-                    <nav class="flex space-x-6 overflow-x-auto no-scrollbar">
+                    <nav class="flex space-x-6">
                         <a href="index.html"
                             class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Home</a>
+
+                        <!-- Machines Dropdown -->
+                        <div class="relative group">
+                            <button
+                                class="flex items-center gap-1 text-gray-700 hover:text-secondary font-medium focus:outline-none">
+                                <span>Machines</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+
+                            <div
+                                class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 transition-all duration-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+                                <a href="machines.html"
+                                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Machines</a>
+                                <a href="tools.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Tools</a>
+                            </div>
+                        </div>
+
                         <a href="designs.html"
                             class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Designs</a>
-                        <a href="machines.html"
-                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Machines</a>
+
+
                         <a href="subscription.html"
                             class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Subscription</a>
+
                         <a href="vendors.html"
-                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Vendors</a>
+                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Career</a>
+
                         <a href="aboutus.html"
                             class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">About</a>
-                        <a href="contactus.html"
-                            class="whitespace-nowrap text-gray-700 hover:text-secondary font-medium">Contact</a>
                     </nav>
 
                     <form class="relative flex-shrink-0">
@@ -81,11 +92,24 @@
 
                 <!-- Desktop Login & Vendor -->
                 <div class="hidden md:flex items-center space-x-4 ml-6">
-                    <a href="login.html"
-                        class="text-gray-700 hover:text-secondary font-medium whitespace-nowrap">Login</a>
-                    <a href="#"
-                        class="bg-accent text-white px-4 py-2 rounded-md font-semibold hover:bg-emerald-600 transition whitespace-nowrap">Become
-                        a Vendor</a>
+                    <!-- Account Dropdown -->
+                    <div class="relative group">
+                        <button
+                            class="flex items-center text-gray-700 hover:text-secondary font-medium focus:outline-none">
+                            <span>Account</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div
+                            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="login.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Login</a>
+                            <a href="register.html"
+                                class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Registration</a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Mobile Search Button -->
@@ -103,7 +127,7 @@
         </div>
 
         <!-- Mobile Search Bar -->
-        <div id="mobile-search-bar" class="hidden md:hidden bg-white px-4 pb-4 border-b border-gray-200 relative">
+        <div id="mobile-search-bar" class="hidden md:hidden bg-white/40 backdrop-blur-md shadow-lg px-4 pb-4 border-b border-white/20 relative">
             <form>
                 <input type="search" placeholder="Search designs, machines..."
                     class="w-full pl-10 pr-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
@@ -120,39 +144,51 @@
 
     <!-- Bottom Navigation Bar (Mobile Only) -->
     <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-50">
-        <div class="flex justify-around items-center">
+        <div class="flex justify-around items-center relative">
+            <!-- Home -->
             <a href="index.html"
                 class="flex flex-col items-center justify-center p-3 text-gray-700 hover:text-secondary">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                    </path>
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
                 <span class="text-xs mt-1">Home</span>
             </a>
+
+            <!-- Designs -->
             <a href="designs.html"
                 class="flex flex-col items-center justify-center p-3 text-gray-700 hover:text-secondary">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
-                    </path>
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
                 <span class="text-xs mt-1">Designs</span>
             </a>
-            <a href="machines.html"
-                class="flex flex-col items-center justify-center p-3 text-gray-700 hover:text-secondary">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                    </path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                <span class="text-xs mt-1">Machines</span>
-            </a>
+
+            <!-- Machines Dropup -->
+            <div class="relative">
+                <button id="mobile-machines-toggle"
+                    class="flex flex-col items-center justify-center p-3 text-gray-700 hover:text-secondary focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span class="text-xs mt-1">Machines</span>
+                </button>
+                <div id="mobile-machines-menu"
+                    class="absolute bottom-12 left-1/2 -translate-x-1/2 bg-white shadow-lg rounded-md w-32 py-1 hidden z-50">
+                    <a href="machines.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Machines</a>
+                    <a href="tools.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tools</a>
+                </div>
+            </div>
+
+            <!-- Subscription -->
             <a href="subscription.html"
                 class="flex flex-col items-center justify-center p-3 text-gray-700 hover:text-secondary">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -163,15 +199,24 @@
                 </svg>
                 <span class="text-xs mt-1">Subscription</span>
             </a>
-            <a href="login.html"
-                class="flex flex-col items-center justify-center p-3 text-gray-700 hover:text-secondary">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                </svg>
-                <span class="text-xs mt-1">Account</span>
-            </a>
+
+            <!-- Account Dropup -->
+            <div class="relative">
+                <button id="mobile-account-toggle"
+                    class="flex flex-col items-center justify-center p-3 text-gray-700 hover:text-secondary focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    <span class="text-xs mt-1">Account</span>
+                </button>
+                <div id="mobile-account-menu"
+                    class="absolute bottom-12 left-1/2 -translate-x-1/2 bg-white shadow-lg rounded-md w-32 py-1 hidden z-50">
+                    <a href="login.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Login</a>
+                    <a href="register.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Register</a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -182,6 +227,32 @@
 
         mobileSearchBtn.addEventListener('click', () => {
             mobileSearchBar.classList.toggle('hidden');
+        });
+
+        const machinesBtn = document.getElementById('mobile-machines-toggle');
+        const machinesMenu = document.getElementById('mobile-machines-menu');
+
+        const accountBtn = document.getElementById('mobile-account-toggle');
+        const accountMenu = document.getElementById('mobile-account-menu');
+
+        machinesBtn.addEventListener('click', () => {
+            machinesMenu.classList.toggle('hidden');
+            accountMenu.classList.add('hidden'); // Close other menu
+        });
+
+        accountBtn.addEventListener('click', () => {
+            accountMenu.classList.toggle('hidden');
+            machinesMenu.classList.add('hidden'); // Close other menu
+        });
+
+        // Optional: Close on outside click
+        document.addEventListener('click', (e) => {
+            if (!machinesBtn.contains(e.target) && !machinesMenu.contains(e.target)) {
+                machinesMenu.classList.add('hidden');
+            }
+            if (!accountBtn.contains(e.target) && !accountMenu.contains(e.target)) {
+                accountMenu.classList.add('hidden');
+            }
         });
     </script>
 
